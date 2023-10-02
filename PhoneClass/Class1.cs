@@ -31,7 +31,7 @@ namespace PhoneClass
         public double ScreenSizeInInches { get; private set; }
         public int BatteryCapacityInmAh { get; private set; }
         public string OperatingSystem { get; private set; }
-        public DateTime ReleaseDate { get; private set; } // Дата выпуска телефона
+        public DateTime ReleaseDate { get; private set; }
 
         // Конструктор, принимающий все свойства
         public Phone(string manufacturer, int simCardCount, string model, double screenSize, int batteryCapacity, string os, DateTime releaseDate)
