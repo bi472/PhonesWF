@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+		  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="PhoneClass">
+      <HintPath>..\PhoneClass\bin\Debug\net6.0\PhoneClass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
