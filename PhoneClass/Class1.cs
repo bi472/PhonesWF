@@ -1,16 +1,40 @@
-﻿namespace PhoneClass
+﻿using System;
+
+namespace PhoneClass
 {
     public class Phone
     {
         public string Manufacturer { get; private set; }
         public int SimCardCount { get; private set; }
-        public string Model { get; private set; }
+
+        private string _model;
+
+        public string Model
+        {
+            get
+            {
+                return _model;
+            }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && char.IsLower(value[0]))
+                {
+                    _model = char.ToUpper(value[0]) + value.Substring(1);
+                }
+                else
+                {
+                    _model = value;
+                }
+            }
+        }
+
         public double ScreenSizeInInches { get; private set; }
         public int BatteryCapacityInmAh { get; private set; }
         public string OperatingSystem { get; private set; }
+        public DateTime ReleaseDate { get; private set; } // Дата выпуска телефона
 
         // Конструктор, принимающий все свойства
-        public Phone(string manufacturer, int simCardCount, string model, double screenSize, int batteryCapacity, string os)
+        public Phone(string manufacturer, int simCardCount, string model, double screenSize, int batteryCapacity, string os, DateTime releaseDate)
         {
             Manufacturer = manufacturer;
             SimCardCount = simCardCount;
@@ -18,6 +42,7 @@
             ScreenSizeInInches = screenSize;
             BatteryCapacityInmAh = batteryCapacity;
             OperatingSystem = os;
+            ReleaseDate = releaseDate;
         }
 
         // Конструктор, принимающий только базовые свойства
@@ -30,10 +55,10 @@
             ScreenSizeInInches = 0.0;
             BatteryCapacityInmAh = 0;
             OperatingSystem = "";
+            ReleaseDate = DateTime.MinValue; // Устанавливаем минимальное значение для DateTime
         }
 
         // Конструктор по умолчанию
-        // Конструктор по умолчанию без аргументов
         public Phone()
         {
             Manufacturer = "Unknown";
@@ -42,8 +67,7 @@
             ScreenSizeInInches = 0.0;
             BatteryCapacityInmAh = 0;
             OperatingSystem = "";
+            ReleaseDate = DateTime.MinValue; // Устанавливаем минимальное значение для DateTime
         }
-
     }
-
 }

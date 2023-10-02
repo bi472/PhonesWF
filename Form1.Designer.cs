@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            numericUpDown1 = new NumericUpDown();
+            dateTimePickerReleaseDate = new DateTimePicker();
+            numericUpDownBatteryCapacity = new NumericUpDown();
+            numericUpDownScreenSize = new NumericUpDown();
+            label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
             numericUpDownSimCards = new NumericUpDown();
-            textBox1 = new TextBox();
             textBoxModel = new TextBox();
             osComboBox = new ComboBox();
             comboBoxManufacturer = new ComboBox();
@@ -47,19 +49,22 @@
             label4 = new Label();
             button3 = new Button();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBatteryCapacity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownScreenSize).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSimCards).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(numericUpDown1);
+            groupBox1.Controls.Add(dateTimePickerReleaseDate);
+            groupBox1.Controls.Add(numericUpDownBatteryCapacity);
+            groupBox1.Controls.Add(numericUpDownScreenSize);
+            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(numericUpDownSimCards);
-            groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(textBoxModel);
             groupBox1.Controls.Add(osComboBox);
             groupBox1.Controls.Add(comboBoxManufacturer);
@@ -68,17 +73,42 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(20, 37);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(308, 228);
+            groupBox1.Size = new Size(323, 263);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Ввод";
             // 
-            // numericUpDown1
+            // dateTimePickerReleaseDate
             // 
-            numericUpDown1.Location = new Point(172, 121);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 5;
+            dateTimePickerReleaseDate.Location = new Point(102, 215);
+            dateTimePickerReleaseDate.Name = "dateTimePickerReleaseDate";
+            dateTimePickerReleaseDate.Size = new Size(200, 23);
+            dateTimePickerReleaseDate.TabIndex = 7;
+            // 
+            // numericUpDownBatteryCapacity
+            // 
+            numericUpDownBatteryCapacity.Location = new Point(182, 155);
+            numericUpDownBatteryCapacity.Name = "numericUpDownBatteryCapacity";
+            numericUpDownBatteryCapacity.Size = new Size(120, 23);
+            numericUpDownBatteryCapacity.TabIndex = 5;
+            numericUpDownBatteryCapacity.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // numericUpDownScreenSize
+            // 
+            numericUpDownScreenSize.Location = new Point(182, 121);
+            numericUpDownScreenSize.Name = "numericUpDownScreenSize";
+            numericUpDownScreenSize.Size = new Size(120, 23);
+            numericUpDownScreenSize.TabIndex = 5;
+            numericUpDownScreenSize.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(6, 221);
+            label8.Name = "label8";
+            label8.Size = new Size(75, 15);
+            label8.TabIndex = 4;
+            label8.Text = "Дата выхода";
             // 
             // label7
             // 
@@ -109,21 +139,14 @@
             // 
             // numericUpDownSimCards
             // 
-            numericUpDownSimCards.Location = new Point(172, 92);
+            numericUpDownSimCards.Location = new Point(182, 92);
             numericUpDownSimCards.Name = "numericUpDownSimCards";
             numericUpDownSimCards.Size = new Size(120, 23);
             numericUpDownSimCards.TabIndex = 3;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(172, 154);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(120, 23);
-            textBox1.TabIndex = 2;
-            // 
             // textBoxModel
             // 
-            textBoxModel.Location = new Point(172, 60);
+            textBoxModel.Location = new Point(182, 60);
             textBoxModel.Name = "textBoxModel";
             textBoxModel.Size = new Size(120, 23);
             textBoxModel.TabIndex = 2;
@@ -131,7 +154,7 @@
             // osComboBox
             // 
             osComboBox.FormattingEnabled = true;
-            osComboBox.Location = new Point(172, 186);
+            osComboBox.Location = new Point(182, 184);
             osComboBox.Name = "osComboBox";
             osComboBox.Size = new Size(120, 23);
             osComboBox.TabIndex = 1;
@@ -139,7 +162,7 @@
             // comboBoxManufacturer
             // 
             comboBoxManufacturer.FormattingEnabled = true;
-            comboBoxManufacturer.Location = new Point(172, 30);
+            comboBoxManufacturer.Location = new Point(182, 31);
             comboBoxManufacturer.Name = "comboBoxManufacturer";
             comboBoxManufacturer.Size = new Size(120, 23);
             comboBoxManufacturer.TabIndex = 1;
@@ -174,7 +197,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(20, 293);
+            button1.Location = new Point(20, 325);
             button1.Name = "button1";
             button1.Size = new Size(168, 23);
             button1.TabIndex = 1;
@@ -203,7 +226,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(20, 333);
+            label4.Location = new Point(20, 365);
             label4.Name = "label4";
             label4.Size = new Size(38, 15);
             label4.TabIndex = 4;
@@ -234,7 +257,8 @@
             Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownBatteryCapacity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownScreenSize).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSimCards).EndInit();
             groupBox2.ResumeLayout(false);
             ResumeLayout(false);
@@ -255,11 +279,13 @@
         private RichTextBox richTextBoxPhoneInfo;
         private Label label4;
         private Label label5;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDownScreenSize;
         private Label label6;
-        private TextBox textBox1;
         private Label label7;
         private ComboBox osComboBox;
         private Button button3;
+        private DateTimePicker dateTimePickerReleaseDate;
+        private Label label8;
+        private NumericUpDown numericUpDownBatteryCapacity;
     }
 }

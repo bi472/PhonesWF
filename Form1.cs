@@ -44,25 +44,37 @@ namespace WinFormsApp1
                 richTextBoxPhoneInfo.AppendText($"Модель: {phone.Model}\n");
                 richTextBoxPhoneInfo.AppendText($"Диагональ экрана: {phone.ScreenSizeInInches}\n");
                 richTextBoxPhoneInfo.AppendText($"Емкость аккумулятора: {phone.BatteryCapacityInmAh}\n");
-                richTextBoxPhoneInfo.AppendText($"Операционная система: {phone.OperatingSystem}\n\n\n");
+                richTextBoxPhoneInfo.AppendText($"Операционная система: {phone.OperatingSystem}\n");
+                richTextBoxPhoneInfo.AppendText($"Дата выпуска: {phone.ReleaseDate}\n\n\n");
             }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string manufacturer = comboBoxManufacturer.SelectedItem.ToString();
-            int simCardCount = (int)numericUpDownSimCards.Value;
-            string model = textBoxModel.Text;
+            try
+            {
+                string manufacturer = comboBoxManufacturer.SelectedItem.ToString();
+                int simCardCount = (int)numericUpDownSimCards.Value;
+                string model = textBoxModel.Text;
+                float screenSize = (float)numericUpDownScreenSize.Value;
+                int batteryCapacity = (int)numericUpDownBatteryCapacity.Value;
+                string os = osComboBox.SelectedItem.ToString();
+                DateTime releaseDate = dateTimePickerReleaseDate.Value;
 
-            newPhone = new Phone(manufacturer, simCardCount, model);
+                newPhone = new Phone(manufacturer, simCardCount, model, screenSize, batteryCapacity, os, releaseDate);
 
-            // Добавляем созданный объект Phone в список
-            phones.Add(newPhone);
+                // Добавляем созданный объект Phone в список
+                phones.Add(newPhone);
 
-            // Обновляем информацию в richTextBoxPhoneInfo
-            update_richTextBoxPhoneInfo();
+                // Обновляем информацию в richTextBoxPhoneInfo
+                update_richTextBoxPhoneInfo();
 
-            label4.Text = $" Хэш код созданной модели {newPhone.Manufacturer}, с количеством сим-карт {newPhone.SimCardCount} : {newPhone.GetHashCode()}";
+                label4.Text = $" Хэш код созданной модели {newPhone.Manufacturer}, с количеством сим-карт {newPhone.SimCardCount} : {newPhone.GetHashCode()}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -79,7 +91,7 @@ namespace WinFormsApp1
 
             Phone phoneWithBasicProperties = new Phone("Samsung", 2, "Galaxy S10");
 
-            Phone phoneWithAllProperties = new Phone("Apple", 1, "iPhone 11", 6.1, 3110, "iOS 13");
+            Phone phoneWithAllProperties = new Phone("Apple", 1, "iPhone 11", 6.1, 3110, "iOS 13", new DateTime(2019, 9, 20));
 
             // Выводим информацию о каждом объекте Phone в списке
 
@@ -90,6 +102,11 @@ namespace WinFormsApp1
             // Обновляем информацию в richTextBoxPhoneInfo
 
             update_richTextBoxPhoneInfo();
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }
