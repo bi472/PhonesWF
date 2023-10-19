@@ -23,6 +23,8 @@ namespace PhoneClass
             }
         }
 
+
+
         private string _model;
 
         public string Model
