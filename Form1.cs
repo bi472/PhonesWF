@@ -21,6 +21,8 @@ namespace WinFormsApp1
             string[] manufacturers = { "Samsung", "Apple", "Huawei", "Nokia", "LG", "Sony" };
             string[] operating_systems = { "Android", "iOS" };
 
+            this.BackColor = Phone.BackColor;
+
             comboBoxManufacturer.Items.AddRange(manufacturers);
             osComboBox.Items.AddRange(operating_systems);
 

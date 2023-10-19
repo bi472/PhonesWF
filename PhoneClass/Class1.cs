@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 
 namespace PhoneClass
 {
@@ -6,6 +7,21 @@ namespace PhoneClass
     {
         public string Manufacturer { get; private set; }
         public int SimCardCount { get; private set; }
+
+        public static readonly Color BackColor;
+
+        static Phone()
+        {
+            DateTime now = DateTime.Now;
+            if (now.DayOfWeek == DayOfWeek.Friday)
+            {
+                Phone.BackColor = Color.Green;
+            }
+            else
+            {
+                Phone.BackColor = Color.White;
+            }
+        }
 
         private string _model;
 
