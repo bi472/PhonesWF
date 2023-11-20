@@ -8,12 +8,14 @@ namespace PhoneClass
         public string Manufacturer { get; private set; }
         public int SimCardCount { get; private set; }
 
+        public String imagePath { get; private set; }
+
         public static readonly Color BackColor;
 
         static Phone()
         {
             DateTime now = DateTime.Now;
-            if (now.DayOfWeek == DayOfWeek.Friday)
+            if (now.DayOfWeek == DayOfWeek.Tuesday)
             {
                 Phone.BackColor = Color.Green;
             }
@@ -86,6 +88,36 @@ namespace PhoneClass
             BatteryCapacityInmAh = 0;
             OperatingSystem = "";
             ReleaseDate = DateTime.MinValue; // Устанавливаем минимальное значение для DateTime
+        }
+    }
+
+    public class Smartphone : Phone
+    {
+        public bool HasTouchScreen { get; private set; }
+        public int CameraMegapixels { get; private set; }
+        public bool HasBluetooth { get; private set; }
+
+        // Конструктор для Smartphone
+        public Smartphone(string manufacturer, int simCardCount, string model, double screenSize, int batteryCapacity, string os, DateTime releaseDate, bool hasTouchScreen, int cameraMegapixels, bool hasBluetooth)
+            : base(manufacturer, simCardCount, model, screenSize, batteryCapacity, os, releaseDate)
+        {
+            HasTouchScreen = hasTouchScreen;
+            CameraMegapixels = cameraMegapixels;
+            HasBluetooth = hasBluetooth;
+        }
+    }
+
+    public class FeaturePhone : Phone
+    {
+        public bool HasPhysicalKeyboard { get; private set; }
+        public string ScreenType { get; private set; }
+
+        // Конструктор для FeaturePhone
+        public FeaturePhone(string manufacturer, int simCardCount, string model, bool hasPhysicalKeyboard, string screenType)
+            : base(manufacturer, simCardCount, model)
+        {
+            HasPhysicalKeyboard = hasPhysicalKeyboard;
+            ScreenType = screenType;
         }
     }
 }

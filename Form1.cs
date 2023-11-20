@@ -6,11 +6,19 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private Phone newPhone;
 
         private List<Phone> phones = new List<Phone>();
+
+        private void UpdateListBox()
+        {
+            listBox1.DataSource = null;
+            listBox1.DataSource = phones;
+            listBox1.DisplayMember = "Model"; // Указывает, какое свойство объекта Phone будет отображаться в ListBox
+        }
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -70,6 +78,7 @@ namespace WinFormsApp1
 
                 // Обновляем информацию в richTextBoxPhoneInfo
                 update_richTextBoxPhoneInfo();
+                UpdateListBox();
 
                 label4.Text = $" Хэш код созданной модели {newPhone.Manufacturer}, с количеством сим-карт {newPhone.SimCardCount} : {newPhone.GetHashCode()}";
             }
@@ -110,6 +119,23 @@ namespace WinFormsApp1
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Выберите изображение";
+                openFileDialog.Filter = "Image Files(*.jpg;*.jpeg;*.gif;*.bmp;*.png)|*.jpg;*.jpeg;*.gif;*.bmp;*.png";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Загрузка и отображение изображения
+                    pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+
+                }
+
+            }
         }
     }
 }
