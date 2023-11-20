@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="PhoneClass">
       <HintPath>..\PhoneClass\bin\Debug\net6.0\PhoneClass.dll</HintPath>
     </Reference>

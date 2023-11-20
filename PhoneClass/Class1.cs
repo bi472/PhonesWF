@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.ComponentModel;
 
 namespace PhoneClass
 {
@@ -11,6 +12,10 @@ namespace PhoneClass
         public String imagePath { get; private set; }
 
         public static readonly Color BackColor;
+        public double ScreenSizeInInches { get; private set; }
+        public int BatteryCapacityInmAh { get; private set; }
+        public string OperatingSystem { get; private set; }
+        public DateTime ReleaseDate { get; private set; }
 
         static Phone()
         {
@@ -23,6 +28,11 @@ namespace PhoneClass
             {
                 Phone.BackColor = Color.White;
             }
+        }
+
+        public override string ToString()
+        {
+            return "Phone: " + Manufacturer + " " + Model;
         }
 
 
@@ -47,11 +57,6 @@ namespace PhoneClass
                 }
             }
         }
-
-        public double ScreenSizeInInches { get; private set; }
-        public int BatteryCapacityInmAh { get; private set; }
-        public string OperatingSystem { get; private set; }
-        public DateTime ReleaseDate { get; private set; }
 
         // Конструктор, принимающий все свойства
         public Phone(string manufacturer, int simCardCount, string model, double screenSize, int batteryCapacity, string os, DateTime releaseDate)
@@ -97,6 +102,20 @@ namespace PhoneClass
         public int CameraMegapixels { get; private set; }
         public bool HasBluetooth { get; private set; }
 
+        public override string ToString()
+        {
+            return "Smartphone: " + Manufacturer + " " + Model + ", Camera: " + CameraMegapixels + "MP";
+        }
+
+
+        // Добавленный конструктор по умолчанию
+        public Smartphone() : base("DefaultManufacturer", 1, "DefaultModel")
+        {
+            HasTouchScreen = true;
+            CameraMegapixels = 12;
+            HasBluetooth = true;
+        }
+
         // Конструктор для Smartphone
         public Smartphone(string manufacturer, int simCardCount, string model, double screenSize, int batteryCapacity, string os, DateTime releaseDate, bool hasTouchScreen, int cameraMegapixels, bool hasBluetooth)
             : base(manufacturer, simCardCount, model, screenSize, batteryCapacity, os, releaseDate)
@@ -111,6 +130,19 @@ namespace PhoneClass
     {
         public bool HasPhysicalKeyboard { get; private set; }
         public string ScreenType { get; private set; }
+
+        public override string ToString()
+        {
+            return "FeaturePhone: " + Manufacturer + " " + Model + ", Screen Type: " + ScreenType;
+        }
+
+
+        // Добавленный конструктор по умолчанию
+        public FeaturePhone() : base("DefaultManufacturer", 1, "DefaultModel")
+        {
+            HasPhysicalKeyboard = true;
+            ScreenType = "LCD";
+        }
 
         // Конструктор для FeaturePhone
         public FeaturePhone(string manufacturer, int simCardCount, string model, bool hasPhysicalKeyboard, string screenType)
