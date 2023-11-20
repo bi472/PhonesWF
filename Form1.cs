@@ -22,7 +22,7 @@ namespace WinFormsApp1
             listBox1.DisplayMember = phones.ToString();
         }
 
-        public Phone CreatePhoneFromJson(string phoneData)
+        public Phone CreatePhoneFromJson(ref string phoneData)
         {
             var jsonData = JObject.Parse(phoneData);
 
@@ -36,6 +36,31 @@ namespace WinFormsApp1
 
             return new Phone(manufacturer, simCardCount, model, screenSize, batteryCapacity, os, releaseDate);
         }
+
+        public void ShowClassMethodsTest()
+        {
+            // Создаем экземпляры классов
+            Phone phone = new Phone("Generic", 1, "BasicModel", 5.0, 3000, "Android", new DateTime(2020, 1, 1));
+            Smartphone smartphone = new Smartphone("Apple", 1, "iPhone X", 6.1, 3110, "iOS", new DateTime(2019, 9, 20), true, 12, true);
+            FeaturePhone featurePhone = new FeaturePhone("Nokia", 1, "3310", false, "LCD");
+
+            // Тестирование методов и свойств
+            label10.Text = phone.GetInfo(); // Тестируем метод GetInfo
+
+            label12.Text = smartphone.GetInfo(); // Тестируем переопределенный метод GetInfo в Smartphone
+
+            label14.Text = featurePhone.GetInfo(); // Тестируем сокрытый метод GetInfo в FeaturePhone
+
+            // Проверка переопределенных и сокрытых методов ToString
+            label16.Text = phone.ToString();
+            label17.Text = smartphone.ToString();
+            label18.Text = featurePhone.ToString();
+
+            label19.Text = "Стоимость ремонта телефона: " + phone.CalculateRepairCost();
+            label20.Text = "Стоимость ремонта смартфона: " + smartphone.CalculateRepairCost();
+        }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -54,6 +79,8 @@ namespace WinFormsApp1
             phoneTypeComboBox.Items.AddRange(phoneTypes);
             phoneTypeComboBox.SelectedIndex = 0;
             osComboBox.Items.AddRange(operating_systems);
+            osComboBox.SelectedIndex = 0;
+            ShowClassMethodsTest();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -197,7 +224,7 @@ namespace WinFormsApp1
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string phoneData = File.ReadAllText(openFileDialog.FileName);
-                    Phone deserializedPhone = CreatePhoneFromJson(phoneData); // Десериализация JSON в объект Phone
+                    Phone deserializedPhone = CreatePhoneFromJson(ref phoneData); // Десериализация JSON в объект Phone
                     // вычисления возраста телефона с даты выпуска
                     DateTime now = DateTime.Now;
                     TimeSpan age = now - deserializedPhone.ReleaseDate;

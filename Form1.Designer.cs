@@ -51,6 +51,15 @@
             listBox1 = new ListBox();
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            groupBox5 = new GroupBox();
+            label20 = new Label();
+            label19 = new Label();
+            label18 = new Label();
+            label17 = new Label();
+            label16 = new Label();
+            label14 = new Label();
+            label12 = new Label();
+            label10 = new Label();
             groupBox4 = new GroupBox();
             button4 = new Button();
             button3 = new Button();
@@ -66,6 +75,7 @@
             groupBox2.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            groupBox5.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -269,11 +279,12 @@
             tabControl1.Margin = new Padding(2, 1, 2, 1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1059, 581);
+            tabControl1.Size = new Size(1222, 551);
             tabControl1.TabIndex = 7;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(groupBox5);
             tabPage1.Controls.Add(groupBox4);
             tabPage1.Controls.Add(groupBox3);
             tabPage1.Controls.Add(groupBox1);
@@ -283,11 +294,100 @@
             tabPage1.Margin = new Padding(2, 1, 2, 1);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(2, 1, 2, 1);
-            tabPage1.Size = new Size(1051, 553);
+            tabPage1.Size = new Size(1214, 523);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Техника";
             tabPage1.UseVisualStyleBackColor = true;
             tabPage1.Click += tabPage1_Click;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(label20);
+            groupBox5.Controls.Add(label19);
+            groupBox5.Controls.Add(label18);
+            groupBox5.Controls.Add(label17);
+            groupBox5.Controls.Add(label16);
+            groupBox5.Controls.Add(label14);
+            groupBox5.Controls.Add(label12);
+            groupBox5.Controls.Add(label10);
+            groupBox5.Location = new Point(729, 313);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(466, 186);
+            groupBox5.TabIndex = 14;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Тестирование методов класса";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(6, 169);
+            label20.Name = "label20";
+            label20.Size = new Size(44, 15);
+            label20.TabIndex = 0;
+            label20.Text = "label10";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(6, 154);
+            label19.Name = "label19";
+            label19.Size = new Size(44, 15);
+            label19.TabIndex = 0;
+            label19.Text = "label10";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(6, 139);
+            label18.Name = "label18";
+            label18.Size = new Size(44, 15);
+            label18.TabIndex = 0;
+            label18.Text = "label10";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(6, 124);
+            label17.Name = "label17";
+            label17.Size = new Size(44, 15);
+            label17.TabIndex = 0;
+            label17.Text = "label10";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(6, 109);
+            label16.Name = "label16";
+            label16.Size = new Size(44, 15);
+            label16.TabIndex = 0;
+            label16.Text = "label10";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(6, 79);
+            label14.Name = "label14";
+            label14.Size = new Size(44, 15);
+            label14.TabIndex = 0;
+            label14.Text = "label10";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(6, 49);
+            label12.Name = "label12";
+            label12.Size = new Size(44, 15);
+            label12.TabIndex = 0;
+            label12.Text = "label10";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(6, 19);
+            label10.Name = "label10";
+            label10.Size = new Size(44, 15);
+            label10.TabIndex = 0;
+            label10.Text = "label10";
             // 
             // groupBox4
             // 
@@ -296,14 +396,14 @@
             groupBox4.Controls.Add(label9);
             groupBox4.Location = new Point(364, 313);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(359, 67);
+            groupBox4.Size = new Size(359, 102);
             groupBox4.TabIndex = 13;
             groupBox4.TabStop = false;
             groupBox4.Text = "Работа с файлами";
             // 
             // button4
             // 
-            button4.Location = new Point(202, 37);
+            button4.Location = new Point(202, 71);
             button4.Name = "button4";
             button4.Size = new Size(151, 23);
             button4.TabIndex = 1;
@@ -313,7 +413,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(6, 37);
+            button3.Location = new Point(6, 71);
             button3.Name = "button3";
             button3.Size = new Size(157, 23);
             button3.TabIndex = 1;
@@ -368,7 +468,7 @@
             tabPage2.Margin = new Padding(2, 1, 2, 1);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(2, 1, 2, 1);
-            tabPage2.Size = new Size(1051, 553);
+            tabPage2.Size = new Size(1051, 523);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Вторая вкладка";
             tabPage2.UseVisualStyleBackColor = true;
@@ -377,7 +477,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1096, 619);
+            ClientSize = new Size(1263, 589);
             Controls.Add(tabControl1);
             Name = "Form1";
             Text = "Form1";
@@ -390,6 +490,8 @@
             groupBox2.ResumeLayout(false);
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -429,5 +531,14 @@
         private Label label9;
         private Button button4;
         private Button button3;
+        private GroupBox groupBox5;
+        private Label label14;
+        private Label label12;
+        private Label label10;
+        private Label label20;
+        private Label label19;
+        private Label label18;
+        private Label label17;
+        private Label label16;
     }
 }
