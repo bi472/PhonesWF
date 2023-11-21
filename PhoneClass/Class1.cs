@@ -3,23 +3,17 @@ using System.Drawing; // Для использования класса Color
 
 namespace PhoneClass
 {
-    public abstract class AbstractPhone
+    public class Phone
     {
-        public string Manufacturer { get; protected set; }
-        public int SimCardCount { get; protected set; }
-        public double ScreenSizeInInches { get; protected set; }
-        public int BatteryCapacityInmAh { get; protected set; }
-        public string OperatingSystem { get; protected set; }
-        public DateTime ReleaseDate { get; protected set; }
-
-        public abstract string GetInfo();
-        public abstract decimal CalculateRepairCost();
-    }
-
-    public class Phone:AbstractPhone
-    {
+        public string Manufacturer { get; private set; }
+        public int SimCardCount { get; private set; }
+        public string imagePath { get; private set; }
 
         public static readonly Color BackColor;
+        public double ScreenSizeInInches { get; private set; }
+        public int BatteryCapacityInmAh { get; private set; }
+        public string OperatingSystem { get; private set; }
+        public DateTime ReleaseDate { get; private set; }
 
         private string _model;
 
@@ -39,7 +33,7 @@ namespace PhoneClass
             }
         }
 
-        public override string GetInfo()
+        public virtual string GetInfo()
         {
             return "Base phone class";
         }
@@ -49,7 +43,7 @@ namespace PhoneClass
             return "Phone: " + Manufacturer + " " + Model;
         }
 
-        public override decimal CalculateRepairCost()
+        public virtual decimal CalculateRepairCost()
         {
             return 50m;
         }
@@ -153,8 +147,6 @@ namespace PhoneClass
         {
             return "FeaturePhone: " + Manufacturer + " " + Model + ", Screen Type: " + ScreenType;
         }
-
-        
 
         public FeaturePhone() : base("DefaultManufacturer", 1, "DefaultModel")
         {
