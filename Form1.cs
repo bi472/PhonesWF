@@ -107,16 +107,12 @@ namespace WinFormsApp1
                 }
                 else if (phoneType == "Smartphone")
                 {
-                    // Добавьте здесь дополнительные параметры, специфичные для Smartphone
                     newPhone = new Smartphone(manufacturer, simCardCount, model, screenSize, batteryCapacity, os, releaseDate, true, 12, true);
                 }
                 else if (phoneType == "FeaturePhone")
                 {
-                    // Добавьте здесь дополнительные параметры, специфичные для FeaturePhone
                     newPhone = new FeaturePhone(manufacturer, simCardCount, model, true, "LCD");
                 }
-
-                // Добавляем созданный объект Phone в список
                 phones.Add(newPhone);
 
 
@@ -242,4 +238,4 @@ namespace WinFormsApp1
             }
         }
     }
-}   
+}
